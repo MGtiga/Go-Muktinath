@@ -5,14 +5,25 @@
         {
           "mode": "Flight (Pokhara → Jomsom)",
           "cost": "USD 100-125",
-          "pricing": { "type": "perPerson", "currency": "USD", "min": 100, "max": 125 },
+          "pricing": {
+            "type": "perPerson",
+            "currency": "USD",
+            "min": 100,
+            "max": 125
+          },
           "bookingDemo": true,
           "photo": "assets/images/transport/flight.jpg"
         },
         {
           "mode": "Private Jeep (Jomsom → Muktinath)",
           "cost": "NPR 3,000-4,000",
-          "pricing": { "type": "perVehicle", "currency": "NPR", "min": 3000, "max": 4000, "capacity": 4 },
+          "pricing": {
+            "type": "perVehicle",
+            "currency": "NPR",
+            "min": 3000,
+            "max": 4000,
+            "capacity": 4
+          },
           "bookingDemo": true,
           "photo": "assets/images/transport/jeep-private.jpg"
         }
@@ -21,19 +32,35 @@
         {
           "name": "Hotel Muktinath (Jomsom)",
           "cost": "NPR 4,000-6,000/night",
-          "pricing": { "type": "perRoom", "currency": "NPR", "min": 4000, "max": 6000, "baseOccupancy": 2 },
+          "pricing": {
+            "type": "perRoom",
+            "currency": "NPR",
+            "min": 4000,
+            "max": 6000,
+            "baseOccupancy": 2
+          },
           "photo": "assets/images/accommodation/hotel-muktinath.jpg"
         },
         {
           "name": "Eco Lodge (Ranipauwa)",
           "cost": "NPR 3,500-5,000/night",
-          "pricing": { "type": "perRoom", "currency": "NPR", "min": 3500, "max": 5000, "baseOccupancy": 2 },
+          "pricing": {
+            "type": "perRoom",
+            "currency": "NPR",
+            "min": 3500,
+            "max": 5000,
+            "baseOccupancy": 2
+          },
           "photo": "assets/images/accommodation/eco-lodge.jpg"
         }
       ],
       "food": {
         "description": "Packed breakfast, local thali set (NPR 400-600), dinner at hotel",
-        "perPersonPerDay": { "min": 1200, "max": 1800, "currency": "NPR" }
+        "perPersonPerDay": {
+          "min": 1200,
+          "max": 1800,
+          "currency": "NPR"
+        }
       },
       "permits": {
         "acap": { "cost": 3000, "currency": "NPR", "childFreeUnder": 10 },
