@@ -22,8 +22,58 @@
     "title": "नेपाली: Budget Estimation",
     "subtitle": "नेपाली: Plan your trip expenses based on your travel style.",
     "noteLabel": "नेपाली: Note:",
-    "note": "नेपाली: Costs are approximate and may vary by season (High season: March-May, Sept-Nov). Prices are subject to change by local transport and hotel operators."
+    "note": "नेपाली: Costs are approximate and may vary by season (High season: March-May, Sept-Nov). Prices are subject to change by local transport and hotel operators.",
+    "categories": {
+      "transport": "नेपाली: Transport (Pokhara to Jomsom/Muktinath)",
+      "accommodation": "नेपाली: Accommodation",
+      "food": "नेपाली: Food & Water",
+      "permits": "नेपाली: Permits & Fees"
+    },
+    "options": {
+      "localBus": "नेपाली: Local Bus",
+      "sharedJeep": "नेपाली: Shared Jeep",
+      "flight": "नेपाली: Domestic Flight",
+      "teahouse": "नेपाली: Basic Teahouse",
+      "hotel": "नेपाली: Standard Hotel",
+      "meals": "नेपाली: Daily Meals (3 times)",
+      "water": "नेपाली: Bottled Water",
+      "acap": "नेपाली: ACAP Permit",
+      "tims": "नेपाली: TIMS Card"
+    },
+    "notes": {
+      "localBus": "नेपाली: One-way, budget friendly",
+      "sharedJeep": "नेपाली: Faster than bus",
+      "flight": "नेपाली: 20-minute scenic flight",
+      "teahouse": "नेपाली: Common bathroom, simple room",
+      "hotel": "नेपाली: Attached bath, better amenities",
+      "meals": "नेपाली: Includes Dal Bhat, snacks",
+      "water": "नेपाली: Price increases with altitude",
+      "acap": "नेपाली: For foreigners (SAARC: NPR 1,000)",
+      "tims": "नेपाली: Required for trekking/independent travelers"
+    }
   },
+  "faq": [
+    {
+      "q": "नेपाली: When is the best time to visit Muktinath?",
+      "a": "नेपाली: The best time to visit is during the Spring (March to May) and Autumn (September to November) when the weather is clear and the mountain views are at their best. These seasons are ideal for both flights and road travel."
+    },
+    {
+      "q": "नेपाली: Do I need any special permits for this trip?",
+      "a": "नेपाली: Yes, visitors generally require the Annapurna Conservation Area Project (ACAP) permit and a TIMS (Trekkers' Information Management Systems) card. Requirements vary for domestic and international tourists."
+    },
+    {
+      "q": "नेपाली: How can I prevent altitude sickness?",
+      "a": "नेपाली: Muktinath is located at 3,710 meters. To stay safe, stay hydrated, avoid rapid ascent, and consider spending a night in Jomsom or Kagbeni to acclimate. Consult a doctor about medication like Diamox if needed."
+    },
+    {
+      "q": "नेपाली: Are there ATMs available in Muktinath?",
+      "a": "नेपाली: There are limited ATM services in Ranipauwa (near the temple), but they can be unreliable due to connectivity issues. It is highly recommended to carry enough local cash from Pokhara or Jomsom."
+    },
+    {
+      "q": "नेपाली: Is the road to Muktinath suitable for all vehicles?",
+      "a": "नेपाली: The road from Beni to Jomsom is rugged and often off-road. While high-clearance jeeps and motorcycles are best, local buses also operate. Small cars are not recommended for this route."
+    }
+  ],
   "itinerary": {
     "travelers": {
       "title": "नेपाली: Number of Travelers",
@@ -38,16 +88,306 @@
       "family": "नेपाली: Family/Pilgrim",
       "adventure": "नेपाली: Adventure",
       "budget": "नेपाली: Budget/Solo"
+    },
+    "plans": {
+      "fast": {
+        "title": "नेपाली: 2-Day (Fast) Plan",
+        "description": "नेपाली: Flight-based express trip for travelers with minimal time.",
+        "days": [
+          {
+            "day": 1,
+            "title": "नेपाली: Flight to Jomsom & Jeep to Muktinath",
+            "activities": [
+              "नेपाली: Fly from Pokhara to Jomsom (20 mins)",
+              "नेपाली: Private jeep to Muktinath",
+              "नेपाली: Afternoon temple visit and 108 sprouts bath"
+            ]
+          },
+          {
+            "day": 2,
+            "title": "नेपाली: Morning Prayer & Return",
+            "activities": [
+              "नेपाली: Early morning Darshan",
+              "नेपाली: Jeep to Jomsom",
+              "नेपाली: Return flight to Pokhara"
+            ]
+          }
+        ]
+      },
+      "standard": {
+        "title": "नेपाली: 3-Day (Standard) Plan",
+        "description": "नेपाली: The classic road-trip balance between comfort and sightseeing.",
+        "days": [
+          {
+            "day": 1,
+            "title": "नेपाली: Drive to Jomsom",
+            "activities": [
+              "नेपाली: Scenic drive from Pokhara",
+              "नेपाली: Stop at Tatopani Hot Springs",
+              "नेपाली: Stay in Jomsom"
+            ]
+          },
+          {
+            "day": 2,
+            "title": "नेपाली: Muktinath & Kagbeni",
+            "activities": [
+              "नेपाली: Morning drive to temple",
+              "नेपाली: Visit Kagbeni ancient village",
+              "नेपाली: Explore local markets"
+            ]
+          },
+          {
+            "day": 3,
+            "title": "नेपाली: Marpha & Return",
+            "activities": [
+              "नेपाली: Visit Marpha apple orchards",
+              "नेपाली: Drive back to Pokhara"
+            ]
+          }
+        ]
+      },
+      "family": {
+        "title": "नेपाली: Family/Pilgrim Plan",
+        "description": "नेपाली: Focuses on religious rituals, accessibility, and comfortable lodging for all age groups.",
+        "days": [
+          {
+            "day": 1,
+            "title": "नेपाली: Pokhara to Jomsom",
+            "activities": [
+              "नेपाली: Flight or luxury jeep",
+              "नेपाली: Leisurely check-in at Jomsom hotel"
+            ]
+          },
+          {
+            "day": 2,
+            "title": "नेपाली: Religious Rituals",
+            "activities": [
+              "नेपाली: Full day dedicated to Muktinath temple",
+              "नेपाली: MUKTI KUNDA holy bath",
+              "नेपाली: Special prayers/Puja services"
+            ]
+          },
+          {
+            "day": 3,
+            "title": "नेपाली: Sightseeing",
+            "activities": [
+              "नेपाली: Visit Kagbeni and Dhumba Lake",
+              "नेपाली: Family dinner in Jomsom"
+            ]
+          },
+          {
+            "day": 4,
+            "title": "नेपाली: Relaxed Return",
+            "activities": [
+              "नेपाली: Morning flight back to Pokhara"
+            ]
+          }
+        ]
+      },
+      "adventure": {
+        "title": "नेपाली: Adventure/Motorcycle Plan",
+        "description": "नेपाली: Designed for international and domestic tourists seeking a rugged experience.",
+        "days": [
+          {
+            "day": 1,
+            "title": "नेपाली: Pokhara to Kalopani",
+            "activities": [
+              "नेपाली: Begin motorcycle/4x4 journey",
+              "नेपाली: Off-road terrain challenges"
+            ]
+          },
+          {
+            "day": 2,
+            "title": "नेपाली: Jomsom & Muktinath",
+            "activities": [
+              "नेपाली: Drive through Kali Gandaki riverbed",
+              "नेपाली: Reach Muktinath (3,710m)"
+            ]
+          },
+          {
+            "day": 3,
+            "title": "नेपाली: Upper Mustang Gateway",
+            "activities": [
+              "नेपाली: Explore Kagbeni and Lubra Valley trek"
+            ]
+          },
+          {
+            "day": 4,
+            "title": "नेपाली: Downhill Return",
+            "activities": [
+              "नेपाली: Drive to Tatopani for relaxation"
+            ]
+          },
+          {
+            "day": 5,
+            "title": "नेपाली: Arrival Pokhara",
+            "activities": [
+              "नेपाली: Final leg of the road adventure"
+            ]
+          }
+        ]
+      },
+      "budget": {
+        "title": "नेपाली: Budget/Solo Plan",
+        "description": "नेपाली: Optimized for cost-effectiveness using local transport.",
+        "days": [
+          {
+            "day": 1,
+            "title": "नेपाली: Local Bus Journey",
+            "activities": [
+              "नेपाली: Pokhara to Ghasa by local bus",
+              "नेपाली: Budget lodge stay"
+            ]
+          },
+          {
+            "day": 2,
+            "title": "नेपाली: Shared Jeep Transfer",
+            "activities": [
+              "नेपाली: Shared jeep to Jomsom/Muktinath",
+              "नेपाली: Dormitory stay in Ranipauwa"
+            ]
+          },
+          {
+            "day": 3,
+            "title": "नेपाली: Temple & Return Prep",
+            "activities": [
+              "नेपाली: Morning temple visit",
+              "नेपाली: Hike to nearby viewpoints"
+            ]
+          },
+          {
+            "day": 4,
+            "title": "नेपाली: Return Journey",
+            "activities": [
+              "नेपाली: Local transport back to Pokhara"
+            ]
+          }
+        ]
+      }
     }
   },
-  "faq": {
-    "title": "नेपाली: Frequently Asked Questions",
-    "subtitle": "नेपाली: Common queries for pilgrims and travelers."
+  "contextPanel": {
+    "title": "नेपाली: Travel Tips & Info",
+    "transport": "नेपाली: 🚌 Transport Options",
+    "accommodation": "नेपाली: 🏠 Accommodation",
+    "food": "नेपाली: 🍽️ Food",
+    "permits": "नेपाली: 📜 Permits",
+    "tips": "नेपाली: 💡 Tips",
+    "totalEstimate": "नेपाली: Estimated total for {adults} adult(s) and {children} child(ren):",
+    "includes": "नेपाली: Includes transport, accommodation ({nights} nights), food ({days} days), and permits."
   },
-  "weather": {
-    "wind": "नेपाली: Wind",
-    "temp": "नेपाली: Temp",
-    "location": "नेपाली: Muktinath, NP"
+  "travel": {
+    "personas": {
+      "fast": {
+        "transport": {
+          "flight": "नेपाली: Flight (Pokhara → Jomsom)",
+          "jeepPrivate": "नेपाली: Private Jeep (Jomsom → Muktinath)"
+        },
+        "accommodation": {
+          "hotelMuktinath": "नेपाली: Hotel Muktinath (Jomsom)",
+          "ecoLodge": "नेपाली: Eco Lodge (Ranipauwa)"
+        },
+        "food": "नेपाली: Packed breakfast, local thali set (NPR 400-600), dinner at hotel",
+        "tips": [
+          "नेपाली: Book flights at least 2 weeks in advance",
+          "नेपाली: Flights often cancel due to weather – keep a buffer day",
+          "नेपाली: Carry cash for permits and local expenses"
+        ]
+      },
+      "standard": {
+        "transport": {
+          "touristBus": "नेपाली: Tourist Bus (Pokhara → Jomsom)",
+          "sharedJeep": "नेपाली: Shared Jeep (Jomsom → Muktinath)",
+          "returnJeep": "नेपाली: Return Jeep (Muktinath → Pokhara)"
+        },
+        "accommodation": {
+          "snowLeopard": "नेपाली: Hotel Snow Leopard (Jomsom)",
+          "guestHouse": "नेपाली: Muktinath Guest House"
+        },
+        "food": "नेपाली: Breakfast at lodge, packed lunch, dinner at local restaurant",
+        "tips": [
+          "नेपाली: Start early to avoid afternoon winds on the road",
+          "नेपाली: Try local apple brandy in Marpha",
+          "नेपाली: Carry warm layers even in summer"
+        ]
+      },
+      "family": {
+        "transport": {
+          "privateSUV": "नेपाली: Private SUV (Pokhara → Jomsom)",
+          "privateJeep": "नेपाली: Private Jeep (Jomsom → Muktinath)",
+          "flight": "नेपाली: Flight (Pokhara → Jomsom) – child discount available"
+        },
+        "accommodation": {
+          "hotelHimalayan": "नेपाली: Hotel Himalayan (Jomsom) – family rooms",
+          "familyLodge": "नेपाली: Muktinath Family Lodge"
+        },
+        "food": "नेपाली: Family thali, continental options, kid-friendly meals",
+        "tips": [
+          "नेपाली: Book private transport for comfort and flexibility",
+          "नेपाली: Pack snacks and entertainment for children",
+          "नेपाली: Ensure accommodation has attached bathrooms and heating"
+        ]
+      },
+      "adventure": {
+        "transport": {
+          "motorcycle": "नेपाली: Motorcycle Rental (Pokhara → Muktinath)",
+          "4x4": "नेपाली: 4x4 Jeep (Pokhara → Muktinath)",
+          "sharedJeep": "नेपाली: Shared Jeep (for shorter sections)"
+        },
+        "accommodation": {
+          "camping": "नेपाली: Camping Tent (Kali Gandaki)",
+          "adventureLodge": "नेपाली: Adventure Lodge (Jomsom)",
+          "teahouse": "नेपाली: Basic Teahouse (en route)"
+        },
+        "food": "नेपाली: High-energy trail food, local dal bhat, packed lunches",
+        "tips": [
+          "नेपाली: Carry a basic repair kit for motorcycles",
+          "नेपाली: Fuel is scarce – fill up whenever possible",
+          "नेपाली: Respect local culture and seek permission before photographing",
+          "नेपाली: Acclimatize properly – altitude sickness can hit anyone"
+        ]
+      },
+      "budget": {
+        "transport": {
+          "localBus": "नेपाली: Local Bus (Pokhara → Jomsom)",
+          "sharedJeep": "नेपाली: Shared Jeep (Jomsom → Muktinath)",
+          "returnBus": "नेपाली: Return by Local Bus (Jomsom → Pokhara)"
+        },
+        "accommodation": {
+          "teahouse": "नेपाली: Basic Teahouse (Jomsom)",
+          "dorm": "नेपाली: Dormitory (Ranipauwa)"
+        },
+        "food": "नेपाली: Local dal bhat (NPR 250-350/meal), noodle soup, chai",
+        "tips": [
+          "नेपाली: Carry enough cash – ATMs in Jomsom are unreliable",
+          "नेपाली: Shared jeeps fill up quickly – go early",
+          "नेपाली: Negotiate teahouse prices if staying multiple nights",
+          "नेपाली: Drink plenty of water and avoid alcohol for acclimatization"
+        ]
+      }
+    },
+    "markers": {
+      "pokharaAirport": "नेपाली: Pokhara Airport",
+      "jomsomAirport": "नेपाली: Jomsom Airport",
+      "muktinathTemple": "नेपाली: Muktinath Temple",
+      "ranipauwaVillage": "नेपाली: Ranipauwa Village",
+      "pokharaBusPark": "नेपाली: Pokhara Bus Park",
+      "tatopaniHotSprings": "नेपाली: Tatopani Hot Springs",
+      "jomsomBazaar": "नेपाली: Jomsom Bazaar",
+      "kagbeniVillage": "नेपाली: Kagbeni Village",
+      "marphaOrchards": "नेपाली: Marpha Apple Orchards",
+      "pokharaLakeside": "नेपाली: Pokhara Lakeside",
+      "jomsomHelipad": "नेपाली: Jomsom Helipad",
+      "kagbeniMonastery": "नेपाली: Kagbeni Monastery",
+      "dhumbaLake": "नेपाली: Dhumba Lake",
+      "beni": "नेपाली: Beni – Last Town with Fuel",
+      "ghasa": "नेपाली: Ghasa – Steep Climb",
+      "kaliGandaki": "नेपाली: Kali Gandaki Riverbed",
+      "lubraValley": "नेपाली: Lubra Valley Trek Start"
+    }
+  },
+  "permits": {
+    "description": "नेपाली: ACAP NPR {acap} per adult (children under 10 free), TIMS NPR {tims} per adult"
   },
   "modals": {
     "routeLabel": "नेपाली: Route:",
@@ -77,5 +417,10 @@
       "condition": "नेपाली: Rugged Himalayan terrain. You can choose between shared jeeps (budget-friendly) or private jeeps (comfortable) [1].",
       "recommendation": "नेपाली: Ideal for adventure seekers wanting to see the gates of Upper Mustang."
     }
+  },
+  "weather": {
+    "wind": "नेपाली: Wind",
+    "temp": "नेपाली: Temp",
+    "location": "नेपाली: Muktinath, NP"
   }
 }

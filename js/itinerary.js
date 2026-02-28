@@ -12,62 +12,14 @@ let mapMarkers = [];
 let mapRoutes = [];
 let currentPlanKey = 'fast'; // default plan
 
-const itineraryData = {
-    fast: {
-        title: "2-Day (Fast) Plan",
-        description: "Flight-based express trip for travelers with minimal time.",
-        days: [
-            { day: 1, title: "Flight to Jomsom & Jeep to Muktinath", activities: ["Fly from Pokhara to Jomsom (20 mins)", "Private jeep to Muktinath", "Afternoon temple visit and 108 sprouts bath"] },
-            { day: 2, title: "Morning Prayer & Return", activities: ["Early morning Darshan", "Jeep to Jomsom", "Return flight to Pokhara"] }
-        ]
-    },
-    standard: {
-        title: "3-Day (Standard) Plan",
-        description: "The classic road-trip balance between comfort and sightseeing.",
-        days: [
-            { day: 1, title: "Drive to Jomsom", activities: ["Scenic drive from Pokhara", "Stop at Tatopani Hot Springs", "Stay in Jomsom"] },
-            { day: 2, title: "Muktinath & Kagbeni", activities: ["Morning drive to temple", "Visit Kagbeni ancient village", "Explore local markets"] },
-            { day: 3, title: "Marpha & Return", activities: ["Visit Marpha apple orchards", "Drive back to Pokhara"] }
-        ]
-    },
-    family: {
-        title: "Family/Pilgrim Plan",
-        description: "Focuses on religious rituals, accessibility, and comfortable lodging for all age groups.",
-        days: [
-            { day: 1, title: "Pokhara to Jomsom", activities: ["Flight or luxury jeep", "Leisurely check-in at Jomsom hotel"] },
-            { day: 2, title: "Religious Rituals", activities: ["Full day dedicated to Muktinath temple", "MUKTI KUNDA holy bath", "Special prayers/Puja services"] },
-            { day: 3, title: "Sightseeing", activities: ["Visit Kagbeni and Dhumba Lake", "Family dinner in Jomsom"] },
-            { day: 4, title: "Relaxed Return", activities: ["Morning flight back to Pokhara"] }
-        ]
-    },
-    adventure: {
-        title: "Adventure/Motorcycle Plan",
-        description: "Designed for international and domestic tourists seeking a rugged experience.",
-        days: [
-            { day: 1, title: "Pokhara to Kalopani", activities: ["Begin motorcycle/4x4 journey", "Off-road terrain challenges"] },
-            { day: 2, title: "Jomsom & Muktinath", activities: ["Drive through Kali Gandaki riverbed", "Reach Muktinath (3,710m)"] },
-            { day: 3, title: "Upper Mustang Gateway", activities: ["Explore Kagbeni and Lubra Valley trek"] },
-            { day: 4, title: "Downhill Return", activities: ["Drive to Tatopani for relaxation"] },
-            { day: 5, title: "Arrival Pokhara", activities: ["Final leg of the road adventure"] }
-        ]
-    },
-    budget: {
-        title: "Budget/Solo Plan",
-        description: "Optimized for cost-effectiveness using local transport.",
-        days: [
-            { day: 1, title: "Local Bus Journey", activities: ["Pokhara to Ghasa by local bus", "Budget lodge stay"] },
-            { day: 2, title: "Shared Jeep Transfer", activities: ["Shared jeep to Jomsom/Muktinath", "Dormitory stay in Ranipauwa"] },
-            { day: 3, title: "Temple & Return Prep", activities: ["Morning temple visit", "Hike to nearby viewpoints"] },
-            { day: 4, title: "Return Journey", activities: ["Local transport back to Pokhara"] }
-        ]
-    }
-};
-
-// Display the day cards (left column)
+// Display the day cards (left column) using translations
 function displayItinerary(planKey) {
-    const plan = itineraryData[planKey];
     const container = document.getElementById('itinerary-days');
     if (!container) return;
+
+    // Get plan data from translations
+    const plan = i18n.t(`itinerary.plans.${planKey}`, null);
+    if (!plan) return;
 
     let html = `
         <div class="itinerary-header mb-4 text-center">
@@ -104,7 +56,7 @@ function getPriceRange(pricing) {
     return { min: pricing.min || 0, max: pricing.max || pricing.min };
 }
 
-// Main cost calculation function
+// Main cost calculation function (unchanged – uses numeric data)
 function calculateCosts(persona, adults, children, planDays) {
     let totalMin = 0, totalMax = 0;
     const breakdown = [];
@@ -120,7 +72,6 @@ function calculateCosts(persona, adults, children, planDays) {
             const adultCostMax = range.max * adults;
             let childCostMin = 0, childCostMax = 0;
             if (p.childDiscount && children > 0) {
-                // Assume child discount means half price, or custom logic can be added
                 childCostMin = range.min * children * 0.5;
                 childCostMax = range.max * children * 0.5;
             } else {
@@ -130,8 +81,6 @@ function calculateCosts(persona, adults, children, planDays) {
             transportMin += adultCostMin + childCostMin;
             transportMax += adultCostMax + childCostMax;
         } else if (p.type === 'perVehicle') {
-            // For perVehicle, we assume one vehicle needed, regardless of group size up to capacity.
-            // But if group exceeds capacity, maybe need more vehicles? For simplicity, we assume one vehicle fits.
             transportMin += range.min;
             transportMax += range.max;
         }
@@ -142,8 +91,6 @@ function calculateCosts(persona, adults, children, planDays) {
 
     // --- Accommodation ---
     let accommodationMin = 0, accommodationMax = 0;
-    // We'll pick the first accommodation option for calculation (or we could average)
-    // For simplicity, take the first item as representative.
     if (persona.accommodation.length > 0) {
         const acc = persona.accommodation[0];
         const p = acc.pricing;
@@ -157,7 +104,6 @@ function calculateCosts(persona, adults, children, planDays) {
                 accommodationMin = range.min * adults;
                 accommodationMax = range.max * adults;
             } else if (p.type === 'perTent') {
-                // tents similar to rooms
                 const tents = calculateRooms(adults, p.baseOccupancy || 2);
                 accommodationMin = range.min * tents;
                 accommodationMax = range.max * tents;
@@ -177,7 +123,7 @@ function calculateCosts(persona, adults, children, planDays) {
         const adultFoodMax = foodPrices.max * adults * days;
         let childFoodMin = 0, childFoodMax = 0;
         if (foodPrices.childDiscount && children > 0) {
-            const discount = foodPrices.childDiscount; // e.g., 0.5
+            const discount = foodPrices.childDiscount;
             childFoodMin = foodPrices.min * children * days * discount;
             childFoodMax = foodPrices.max * children * days * discount;
         } else {
@@ -200,7 +146,7 @@ function calculateCosts(persona, adults, children, planDays) {
             const adultAcap = acap.cost * adults;
             const childAcap = (acap.childFreeUnder && children > 0) ? 0 : acap.cost * children;
             permitsMin += adultAcap + childAcap;
-            permitsMax += adultAcap + childAcap; // fixed cost
+            permitsMax += adultAcap + childAcap;
         }
         if (tims) {
             const adultTims = tims.cost * adults;
@@ -219,12 +165,12 @@ function calculateCosts(persona, adults, children, planDays) {
     };
 }
 
-// Format currency
+// Format currency (unchanged)
 function formatCurrency(amount, currency = 'NPR') {
     return `${currency} ${Math.round(amount).toLocaleString()}`;
 }
 
-// Update the context panel with dynamic data
+// Update the context panel with dynamic data and translations
 function updateContextPanel(personaKey) {
     if (!travelData) return;
 
@@ -234,60 +180,95 @@ function updateContextPanel(personaKey) {
     const adults = parseInt(document.getElementById('adults').value) || 1;
     const children = parseInt(document.getElementById('children').value) || 0;
 
-    // Get number of days from the current itinerary plan
-    const planDays = itineraryData[currentPlanKey].days.length;
+    // Get number of days from the current itinerary plan (from translations)
+    const plan = i18n.t(`itinerary.plans.${currentPlanKey}`, null);
+    const planDays = plan ? plan.days.length : 3; // fallback
 
     const costs = calculateCosts(persona, adults, children, planDays);
 
-    // Build HTML
+    // Helper to get translated transport mode name
+    const getTransportName = (item) => {
+        if (item.key) {
+            const translated = i18n.t(`travel.personas.${personaKey}.transport.${item.key}`);
+            if (translated && translated !== `travel.personas.${personaKey}.transport.${item.key}`) {
+                return translated;
+            }
+        }
+        return item.mode; // fallback to original
+    };
+
+    // Helper to get translated accommodation name
+    const getAccommodationName = (item) => {
+        if (item.key) {
+            const translated = i18n.t(`travel.personas.${personaKey}.accommodation.${item.key}`);
+            if (translated && translated !== `travel.personas.${personaKey}.accommodation.${item.key}`) {
+                return translated;
+            }
+        }
+        return item.name; // fallback
+    };
+
+    // Get translated food description (if available)
+    const foodDesc = i18n.t(`travel.personas.${personaKey}.food`) || (persona.food.description || persona.food);
+
+    // Get translated tips array (if available)
+    const tips = i18n.t(`travel.personas.${personaKey}.tips`, []);
+    const tipsList = tips.length ? tips : persona.tips;
+
+    // Get translated permits text (we can build a dynamic string)
+    const permitsText = i18n.t('permits.description', {
+        acap: persona.permits?.acap?.cost || 3000,
+        tims: persona.permits?.tims?.cost || 2000
+    }) || `ACAP NPR 3,000 per adult (children under 10 free), TIMS NPR 2,000 per adult`;
+
+    // Build HTML with translated headings
     let html = `
-        <h5 class="fw-bold mb-3">Travel Tips & Info</h5>
+        <h5 class="fw-bold mb-3">${i18n.t('contextPanel.title')}</h5>
         <div class="mb-3">
-            <h6 class="fw-semibold">🚌 Transport Options</h6>
+            <h6 class="fw-semibold">${i18n.t('contextPanel.transport')}</h6>
             <ul class="list-unstyled small">
                 ${persona.transport.map(t => {
                     let priceDisplay = t.cost;
-                    // If we have structured pricing, we could show per-person note
                     if (t.pricing && t.pricing.type === 'perPerson') {
                         priceDisplay += ' per person';
                     } else if (t.pricing && t.pricing.type === 'perVehicle') {
                         priceDisplay += ' per vehicle';
                     }
-                    return `<li><strong>${t.mode}:</strong> ${priceDisplay} ${t.bookingDemo ? '<button class="btn btn-sm btn-outline-success ms-2" onclick="alert(\'Demo booking – no charge\')">Book Demo</button>' : ''}</li>`;
+                    return `<li><strong>${getTransportName(t)}:</strong> ${priceDisplay} ${t.bookingDemo ? '<button class="btn btn-sm btn-outline-success ms-2" onclick="alert(\'Demo booking – no charge\')">Book Demo</button>' : ''}</li>`;
                 }).join('')}
             </ul>
         </div>
         <div class="mb-3">
-            <h6 class="fw-semibold">🏠 Accommodation</h6>
+            <h6 class="fw-semibold">${i18n.t('contextPanel.accommodation')}</h6>
             <ul class="list-unstyled small">
-                ${persona.accommodation.map(a => `<li><strong>${a.name}:</strong> ${a.cost}</li>`).join('')}
+                ${persona.accommodation.map(a => `<li><strong>${getAccommodationName(a)}:</strong> ${a.cost}</li>`).join('')}
             </ul>
         </div>
         <div class="mb-3">
-            <h6 class="fw-semibold">🍽️ Food</h6>
-            <p class="small">${persona.food.description || persona.food}</p>
+            <h6 class="fw-semibold">${i18n.t('contextPanel.food')}</h6>
+            <p class="small">${foodDesc}</p>
         </div>
         <div class="mb-3">
-            <h6 class="fw-semibold">📜 Permits</h6>
-            <p class="small">${persona.permits ? `ACAP NPR 3,000 per adult (children under 10 free), TIMS NPR 2,000 per adult` : ''}</p>
+            <h6 class="fw-semibold">${i18n.t('contextPanel.permits')}</h6>
+            <p class="small">${permitsText}</p>
         </div>
         <div class="mb-3">
-            <h6 class="fw-semibold">💡 Tips</h6>
+            <h6 class="fw-semibold">${i18n.t('contextPanel.tips')}</h6>
             <ul class="small">
-                ${persona.tips.map(tip => `<li>${tip}</li>`).join('')}
+                ${tipsList.map(tip => `<li>${tip}</li>`).join('')}
             </ul>
         </div>
         <div class="alert alert-info mt-3">
-            <strong>Estimated total for ${adults} adult(s) and ${children} child(ren):</strong><br>
+            <strong>${i18n.t('contextPanel.totalEstimate', { adults, children })}</strong><br>
             ${formatCurrency(costs.total.min)} – ${formatCurrency(costs.total.max)}
-            <br><small class="text-muted">Includes transport, accommodation (${planDays} nights), food (${planDays} days), and permits.</small>
+            <br><small class="text-muted">${i18n.t('contextPanel.includes', { nights: planDays, days: planDays })}</small>
         </div>
     `;
 
     document.getElementById('context-panel').innerHTML = html;
 }
 
-// Update map (unchanged except we also refresh context)
+// Update map (unchanged except marker popups use translation)
 function updateMapAndContext(personaKey) {
     if (!travelData || !map) return;
 
@@ -300,17 +281,25 @@ function updateMapAndContext(personaKey) {
     mapMarkers = [];
     mapRoutes = [];
 
-    // Add markers
+    // Add markers with translated names
     if (persona.mapMarkers) {
         persona.mapMarkers.forEach(markerInfo => {
+            // Try to get translated name from travel.markers using a key
+            let markerName = markerInfo.name;
+            if (markerInfo.key) {
+                const translated = i18n.t(`travel.markers.${markerInfo.key}`);
+                if (translated && translated !== `travel.markers.${markerInfo.key}`) {
+                    markerName = translated;
+                }
+            }
             const marker = L.marker(markerInfo.coords)
-                .bindPopup(`<b>${markerInfo.name}</b><br>Type: ${markerInfo.type}`);
+                .bindPopup(`<b>${markerName}</b><br>Type: ${markerInfo.type}`);
             marker.addTo(map);
             mapMarkers.push(marker);
         });
     }
 
-    // Add routes (example)
+    // Add routes (same as before)
     if (travelData.routes) {
         if (travelData.routes.pokharaToJomsom && travelData.routes.pokharaToJomsom.byBus) {
             const route = L.polyline(travelData.routes.pokharaToJomsom.byBus.coordinates, { color: 'blue' }).addTo(map);
@@ -328,7 +317,7 @@ function updateMapAndContext(personaKey) {
         map.fitBounds(group.getBounds().pad(0.2));
     }
 
-    // Update context panel with current traveler numbers
+    // Update context panel
     updateContextPanel(personaKey);
 }
 
@@ -344,12 +333,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Show default itinerary (fast) and map/context for budget (or fast)
+        // Show default itinerary (fast) and map/context for fast
         displayItinerary('fast');
         currentPlanKey = 'fast';
-        updateMapAndContext('budget'); // Using budget persona for map? We'll change to fast if preferred.
-        // To be consistent, we might want the persona to match the plan key. Let's set personaKey = planKey.
-        // But we have 'budget' as a separate key. For now, we'll keep as is.
+        updateMapAndContext('fast'); // Use same key for persona
 
         // Attach click listeners to plan buttons
         document.querySelectorAll('[data-plan]').forEach(btn => {
@@ -357,7 +344,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const planKey = this.getAttribute('data-plan');
                 displayItinerary(planKey);
                 currentPlanKey = planKey;
-                // For map/context, use the same key (persona keys match plan keys)
                 updateMapAndContext(planKey);
                 document.querySelectorAll('[data-plan]').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
@@ -366,7 +352,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Attach listeners to traveler inputs
         document.getElementById('adults').addEventListener('input', () => {
-            // Recalculate context panel for current persona
             const activePlan = document.querySelector('[data-plan].active');
             const planKey = activePlan ? activePlan.getAttribute('data-plan') : 'fast';
             updateContextPanel(planKey);
@@ -375,6 +360,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             const activePlan = document.querySelector('[data-plan].active');
             const planKey = activePlan ? activePlan.getAttribute('data-plan') : 'fast';
             updateContextPanel(planKey);
+        });
+
+        // Listen for language changes to re-render everything
+        window.addEventListener('languageChanged', () => {
+            // Re-display current itinerary with new translations
+            displayItinerary(currentPlanKey);
+            // Update map and context (marker names, context panel)
+            updateMapAndContext(currentPlanKey);
         });
 
     } catch (error) {

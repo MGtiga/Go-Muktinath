@@ -22,8 +22,58 @@
     "title": "Budget Estimation",
     "subtitle": "Plan your trip expenses based on your travel style.",
     "noteLabel": "Note:",
-    "note": "Costs are approximate and may vary by season (High season: March-May, Sept-Nov). Prices are subject to change by local transport and hotel operators."
+    "note": "Costs are approximate and may vary by season (High season: March-May, Sept-Nov). Prices are subject to change by local transport and hotel operators.",
+    "categories": {
+      "transport": "Transport (Pokhara to Jomsom/Muktinath)",
+      "accommodation": "Accommodation",
+      "food": "Food & Water",
+      "permits": "Permits & Fees"
+    },
+    "options": {
+      "localBus": "Local Bus",
+      "sharedJeep": "Shared Jeep",
+      "flight": "Domestic Flight",
+      "teahouse": "Basic Teahouse",
+      "hotel": "Standard Hotel",
+      "meals": "Daily Meals (3 times)",
+      "water": "Bottled Water",
+      "acap": "ACAP Permit",
+      "tims": "TIMS Card"
+    },
+    "notes": {
+      "localBus": "One-way, budget friendly",
+      "sharedJeep": "Faster than bus",
+      "flight": "20-minute scenic flight",
+      "teahouse": "Common bathroom, simple room",
+      "hotel": "Attached bath, better amenities",
+      "meals": "Includes Dal Bhat, snacks",
+      "water": "Price increases with altitude",
+      "acap": "For foreigners (SAARC: NPR 1,000)",
+      "tims": "Required for trekking/independent travelers"
+    }
   },
+  "faq": [
+    {
+      "q": "When is the best time to visit Muktinath?",
+      "a": "The best time to visit is during the Spring (March to May) and Autumn (September to November) when the weather is clear and the mountain views are at their best. These seasons are ideal for both flights and road travel."
+    },
+    {
+      "q": "Do I need any special permits for this trip?",
+      "a": "Yes, visitors generally require the Annapurna Conservation Area Project (ACAP) permit and a TIMS (Trekkers' Information Management Systems) card. Requirements vary for domestic and international tourists."
+    },
+    {
+      "q": "How can I prevent altitude sickness?",
+      "a": "Muktinath is located at 3,710 meters. To stay safe, stay hydrated, avoid rapid ascent, and consider spending a night in Jomsom or Kagbeni to acclimate. Consult a doctor about medication like Diamox if needed."
+    },
+    {
+      "q": "Are there ATMs available in Muktinath?",
+      "a": "There are limited ATM services in Ranipauwa (near the temple), but they can be unreliable due to connectivity issues. It is highly recommended to carry enough local cash from Pokhara or Jomsom."
+    },
+    {
+      "q": "Is the road to Muktinath suitable for all vehicles?",
+      "a": "The road from Beni to Jomsom is rugged and often off-road. While high-clearance jeeps and motorcycles are best, local buses also operate. Small cars are not recommended for this route."
+    }
+  ],
   "itinerary": {
     "travelers": {
       "title": "Number of Travelers",
@@ -38,16 +88,260 @@
       "family": "Family/Pilgrim",
       "adventure": "Adventure",
       "budget": "Budget/Solo"
+    },
+    "plans": {
+      "fast": {
+        "title": "2-Day (Fast) Plan",
+        "description": "Flight-based express trip for travelers with minimal time.",
+        "days": [
+          {
+            "day": 1,
+            "title": "Flight to Jomsom & Jeep to Muktinath",
+            "activities": [
+              "Fly from Pokhara to Jomsom (20 mins)",
+              "Private jeep to Muktinath",
+              "Afternoon temple visit and 108 sprouts bath"
+            ]
+          },
+          {
+            "day": 2,
+            "title": "Morning Prayer & Return",
+            "activities": [
+              "Early morning Darshan",
+              "Jeep to Jomsom",
+              "Return flight to Pokhara"
+            ]
+          }
+        ]
+      },
+      "standard": {
+        "title": "3-Day (Standard) Plan",
+        "description": "The classic road-trip balance between comfort and sightseeing.",
+        "days": [
+          {
+            "day": 1,
+            "title": "Drive to Jomsom",
+            "activities": ["Scenic drive from Pokhara", "Stop at Tatopani Hot Springs", "Stay in Jomsom"]
+          },
+          {
+            "day": 2,
+            "title": "Muktinath & Kagbeni",
+            "activities": ["Morning drive to temple", "Visit Kagbeni ancient village", "Explore local markets"]
+          },
+          {
+            "day": 3,
+            "title": "Marpha & Return",
+            "activities": ["Visit Marpha apple orchards", "Drive back to Pokhara"]
+          }
+        ]
+      },
+      "family": {
+        "title": "Family/Pilgrim Plan",
+        "description": "Focuses on religious rituals, accessibility, and comfortable lodging for all age groups.",
+        "days": [
+          {
+            "day": 1,
+            "title": "Pokhara to Jomsom",
+            "activities": ["Flight or luxury jeep", "Leisurely check-in at Jomsom hotel"]
+          },
+          {
+            "day": 2,
+            "title": "Religious Rituals",
+            "activities": ["Full day dedicated to Muktinath temple", "MUKTI KUNDA holy bath", "Special prayers/Puja services"]
+          },
+          {
+            "day": 3,
+            "title": "Sightseeing",
+            "activities": ["Visit Kagbeni and Dhumba Lake", "Family dinner in Jomsom"]
+          },
+          {
+            "day": 4,
+            "title": "Relaxed Return",
+            "activities": ["Morning flight back to Pokhara"]
+          }
+        ]
+      },
+      "adventure": {
+        "title": "Adventure/Motorcycle Plan",
+        "description": "Designed for international and domestic tourists seeking a rugged experience.",
+        "days": [
+          {
+            "day": 1,
+            "title": "Pokhara to Kalopani",
+            "activities": ["Begin motorcycle/4x4 journey", "Off-road terrain challenges"]
+          },
+          {
+            "day": 2,
+            "title": "Jomsom & Muktinath",
+            "activities": ["Drive through Kali Gandaki riverbed", "Reach Muktinath (3,710m)"]
+          },
+          {
+            "day": 3,
+            "title": "Upper Mustang Gateway",
+            "activities": ["Explore Kagbeni and Lubra Valley trek"]
+          },
+          {
+            "day": 4,
+            "title": "Downhill Return",
+            "activities": ["Drive to Tatopani for relaxation"]
+          },
+          {
+            "day": 5,
+            "title": "Arrival Pokhara",
+            "activities": ["Final leg of the road adventure"]
+          }
+        ]
+      },
+      "budget": {
+        "title": "Budget/Solo Plan",
+        "description": "Optimized for cost-effectiveness using local transport.",
+        "days": [
+          {
+            "day": 1,
+            "title": "Local Bus Journey",
+            "activities": ["Pokhara to Ghasa by local bus", "Budget lodge stay"]
+          },
+          {
+            "day": 2,
+            "title": "Shared Jeep Transfer",
+            "activities": ["Shared jeep to Jomsom/Muktinath", "Dormitory stay in Ranipauwa"]
+          },
+          {
+            "day": 3,
+            "title": "Temple & Return Prep",
+            "activities": ["Morning temple visit", "Hike to nearby viewpoints"]
+          },
+          {
+            "day": 4,
+            "title": "Return Journey",
+            "activities": ["Local transport back to Pokhara"]
+          }
+        ]
+      }
     }
   },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "subtitle": "Common queries for pilgrims and travelers."
+  "contextPanel": {
+    "title": "Travel Tips & Info",
+    "transport": "🚌 Transport Options",
+    "accommodation": "🏠 Accommodation",
+    "food": "🍽️ Food",
+    "permits": "📜 Permits",
+    "tips": "💡 Tips",
+    "totalEstimate": "Estimated total for {adults} adult(s) and {children} child(ren):",
+    "includes": "Includes transport, accommodation ({nights} nights), food ({days} days), and permits."
   },
-  "weather": {
-    "wind": "Wind",
-    "temp": "Temp",
-    "location": "Muktinath, NP"
+  "travel": {
+    "personas": {
+      "fast": {
+        "transport": {
+          "flight": "Flight (Pokhara → Jomsom)",
+          "jeepPrivate": "Private Jeep (Jomsom → Muktinath)"
+        },
+        "accommodation": {
+          "hotelMuktinath": "Hotel Muktinath (Jomsom)",
+          "ecoLodge": "Eco Lodge (Ranipauwa)"
+        },
+        "food": "Packed breakfast, local thali set (NPR 400-600), dinner at hotel",
+        "tips": [
+          "Book flights at least 2 weeks in advance",
+          "Flights often cancel due to weather – keep a buffer day",
+          "Carry cash for permits and local expenses"
+        ]
+      },
+      "standard": {
+        "transport": {
+          "touristBus": "Tourist Bus (Pokhara → Jomsom)",
+          "sharedJeep": "Shared Jeep (Jomsom → Muktinath)",
+          "returnJeep": "Return Jeep (Muktinath → Pokhara)"
+        },
+        "accommodation": {
+          "snowLeopard": "Hotel Snow Leopard (Jomsom)",
+          "guestHouse": "Muktinath Guest House"
+        },
+        "food": "Breakfast at lodge, packed lunch, dinner at local restaurant",
+        "tips": [
+          "Start early to avoid afternoon winds on the road",
+          "Try local apple brandy in Marpha",
+          "Carry warm layers even in summer"
+        ]
+      },
+      "family": {
+        "transport": {
+          "privateSUV": "Private SUV (Pokhara → Jomsom)",
+          "privateJeep": "Private Jeep (Jomsom → Muktinath)",
+          "flight": "Flight (Pokhara → Jomsom) – child discount available"
+        },
+        "accommodation": {
+          "hotelHimalayan": "Hotel Himalayan (Jomsom) – family rooms",
+          "familyLodge": "Muktinath Family Lodge"
+        },
+        "food": "Family thali, continental options, kid-friendly meals",
+        "tips": [
+          "Book private transport for comfort and flexibility",
+          "Pack snacks and entertainment for children",
+          "Ensure accommodation has attached bathrooms and heating"
+        ]
+      },
+      "adventure": {
+        "transport": {
+          "motorcycle": "Motorcycle Rental (Pokhara → Muktinath)",
+          "4x4": "4x4 Jeep (Pokhara → Muktinath)",
+          "sharedJeep": "Shared Jeep (for shorter sections)"
+        },
+        "accommodation": {
+          "camping": "Camping Tent (Kali Gandaki)",
+          "adventureLodge": "Adventure Lodge (Jomsom)",
+          "teahouse": "Basic Teahouse (en route)"
+        },
+        "food": "High-energy trail food, local dal bhat, packed lunches",
+        "tips": [
+          "Carry a basic repair kit for motorcycles",
+          "Fuel is scarce – fill up whenever possible",
+          "Respect local culture and seek permission before photographing",
+          "Acclimatize properly – altitude sickness can hit anyone"
+        ]
+      },
+      "budget": {
+        "transport": {
+          "localBus": "Local Bus (Pokhara → Jomsom)",
+          "sharedJeep": "Shared Jeep (Jomsom → Muktinath)",
+          "returnBus": "Return by Local Bus (Jomsom → Pokhara)"
+        },
+        "accommodation": {
+          "teahouse": "Basic Teahouse (Jomsom)",
+          "dorm": "Dormitory (Ranipauwa)"
+        },
+        "food": "Local dal bhat (NPR 250-350/meal), noodle soup, chai",
+        "tips": [
+          "Carry enough cash – ATMs in Jomsom are unreliable",
+          "Shared jeeps fill up quickly – go early",
+          "Negotiate teahouse prices if staying multiple nights",
+          "Drink plenty of water and avoid alcohol for acclimatization"
+        ]
+      }
+    },
+    "markers": {
+      "pokharaAirport": "Pokhara Airport",
+      "jomsomAirport": "Jomsom Airport",
+      "muktinathTemple": "Muktinath Temple",
+      "ranipauwaVillage": "Ranipauwa Village",
+      "pokharaBusPark": "Pokhara Bus Park",
+      "tatopaniHotSprings": "Tatopani Hot Springs",
+      "jomsomBazaar": "Jomsom Bazaar",
+      "kagbeniVillage": "Kagbeni Village",
+      "marphaOrchards": "Marpha Apple Orchards",
+      "pokharaLakeside": "Pokhara Lakeside",
+      "jomsomHelipad": "Jomsom Helipad",
+      "kagbeniMonastery": "Kagbeni Monastery",
+      "dhumbaLake": "Dhumba Lake",
+      "beni": "Beni – Last Town with Fuel",
+      "ghasa": "Ghasa – Steep Climb",
+      "kaliGandaki": "Kali Gandaki Riverbed",
+      "lubraValley": "Lubra Valley Trek Start"
+    }
+  },
+  "permits": {
+    "description": "ACAP NPR {acap} per adult (children under 10 free), TIMS NPR {tims} per adult"
   },
   "modals": {
     "routeLabel": "Route:",
@@ -77,5 +371,10 @@
       "condition": "Rugged Himalayan terrain. You can choose between shared jeeps (budget-friendly) or private jeeps (comfortable) [1].",
       "recommendation": "Ideal for adventure seekers wanting to see the gates of Upper Mustang."
     }
+  },
+  "weather": {
+    "wind": "Wind",
+    "temp": "Temp",
+    "location": "Muktinath, NP"
   }
 }
