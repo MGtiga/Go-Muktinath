@@ -65,14 +65,29 @@ const i18n = (function() {
 // Auto-initialize
 // Auto-initialize
 document.addEventListener('DOMContentLoaded', async () => {
-    await i18n.init();
+    const langToggle = document.getElementById('lang-toggle');
+if (langToggle) {
+    // Function to update button text based on current language
+    function updateLangToggle() {
+        const currentLang = i18n.getCurrentLang();
+        const langText = document.getElementById('lang-text');
+        if (currentLang === 'en') {
+            langText.textContent = 'नेपाली';
+        } else {
+            langText.textContent = 'English';
+        }
+    }
 
-    // Language toggle click handlers
-    document.querySelectorAll('[data-lang]').forEach(item => {
-        item.addEventListener('click', async (e) => {
-            e.preventDefault();
-            const lang = e.target.getAttribute('data-lang');
-            await i18n.setLanguage(lang);
-        });
+    // Initial update
+    updateLangToggle();
+
+    // Click handler
+    langToggle.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const currentLang = i18n.getCurrentLang();
+        const newLang = currentLang === 'en' ? 'np' : 'en';
+        await i18n.setLanguage(newLang);
+        updateLangToggle(); // update text after change
     });
+}
 });
