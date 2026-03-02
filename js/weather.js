@@ -138,7 +138,7 @@ function showWeatherDetail(index) {
     modalBody.innerHTML = `
         <div class="text-center mb-3">
             <div style="font-size: 4rem;">${day.emoji}</div>
-            <h4>${day.temp}°C</h4>
+            <h4>${day.temp}°C <small class="text-muted">(noon forecast)</small></h4>
             <p class="lead">${day.description}</p>
         </div>
         <ul class="list-group">
