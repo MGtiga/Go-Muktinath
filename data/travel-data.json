@@ -1,24 +1,28 @@
 {
   "personas": {
     "fast": {
+      "hotelBookingUrl": "https://hotelcrystalfall.com/",
       "transport": [
         {
           "mode": "Flight (Pokhara → Jomsom)",
           "key": "flight",
           "cost": "USD 100-125",
+          "bookingUrl": "https://muktinathdarshantours.com/",
+          "bookingDemo": true,
           "pricing": {
             "type": "perPerson",
             "currency": "USD",
             "min": 100,
             "max": 125
           },
-          "bookingDemo": true,
           "photo": "assets/images/transport/flight.jpg"
         },
         {
           "mode": "Private Jeep (Jomsom → Muktinath)",
           "key": "jeepPrivate",
           "cost": "NPR 3,000-4,000",
+          "bookingUrl": "https://muktinathdarshantours.com/",
+          "bookingDemo": true,
           "pricing": {
             "type": "perVehicle",
             "currency": "NPR",
@@ -26,7 +30,6 @@
             "max": 4000,
             "capacity": 4
           },
-          "bookingDemo": true,
           "photo": "assets/images/transport/jeep-private.jpg"
         }
       ],
@@ -83,11 +86,13 @@
       ]
     },
     "standard": {
+      "hotelBookingUrl": "https://hotelcrystalfall.com/",
       "transport": [
         {
           "mode": "Tourist Bus (Pokhara → Jomsom)",
           "key": "touristBus",
           "cost": "NPR 2,500-3,500",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perPerson", "currency": "NPR", "min": 2500, "max": 3500 },
           "bookingDemo": true,
           "photo": "assets/images/transport/tourist-bus.jpg"
@@ -96,6 +101,7 @@
           "mode": "Shared Jeep (Jomsom → Muktinath)",
           "key": "sharedJeep",
           "cost": "NPR 500-800 per person",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perPerson", "currency": "NPR", "min": 500, "max": 800 },
           "bookingDemo": true,
           "photo": "assets/images/transport/shared-jeep.jpg"
@@ -104,6 +110,7 @@
           "mode": "Return Jeep (Muktinath → Pokhara)",
           "key": "returnJeep",
           "cost": "NPR 4,000-5,000",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perVehicle", "currency": "NPR", "min": 4000, "max": 5000, "capacity": 6 },
           "bookingDemo": true
         }
@@ -146,11 +153,13 @@
       ]
     },
     "family": {
+      "hotelBookingUrl": "https://hotelcrystalfall.com/",
       "transport": [
         {
           "mode": "Private SUV (Pokhara → Jomsom)",
           "key": "privateSUV",
           "cost": "NPR 18,000-22,000 per vehicle",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perVehicle", "currency": "NPR", "min": 18000, "max": 22000, "capacity": 6 },
           "bookingDemo": true,
           "photo": "assets/images/transport/suv.jpg"
@@ -159,6 +168,7 @@
           "mode": "Private Jeep (Jomsom → Muktinath)",
           "key": "privateJeep",
           "cost": "NPR 4,000-5,000 per vehicle",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perVehicle", "currency": "NPR", "min": 4000, "max": 5000, "capacity": 4 },
           "bookingDemo": true,
           "photo": "assets/images/transport/jeep-family.jpg"
@@ -167,6 +177,7 @@
           "mode": "Flight (Pokhara → Jomsom) – child discount available",
           "key": "flight",
           "cost": "USD 80 per child, USD 100 adult",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perPerson", "currency": "USD", "min": 80, "max": 100, "childDiscount": true },
           "bookingDemo": true
         }
@@ -209,11 +220,13 @@
       ]
     },
     "adventure": {
+      "hotelBookingUrl": "https://hotelcrystalfall.com/",
       "transport": [
         {
           "mode": "Motorcycle Rental (Pokhara → Muktinath)",
           "key": "motorcycle",
           "cost": "NPR 3,500-5,000 per day",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perVehicle", "currency": "NPR", "min": 3500, "max": 5000, "capacity": 2 },
           "bookingDemo": true,
           "photo": "assets/images/transport/motorcycle.jpg"
@@ -222,6 +235,7 @@
           "mode": "4x4 Jeep (Pokhara → Muktinath)",
           "key": "4x4",
           "cost": "NPR 25,000-30,000 per vehicle (5 days)",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perVehicle", "currency": "NPR", "min": 25000, "max": 30000, "capacity": 4 },
           "bookingDemo": true,
           "photo": "assets/images/transport/4x4.jpg"
@@ -230,6 +244,7 @@
           "mode": "Shared Jeep (for shorter sections)",
           "key": "sharedJeep",
           "cost": "NPR 500-1,000 per person",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perPerson", "currency": "NPR", "min": 500, "max": 1000 },
           "bookingDemo": true
         }
@@ -282,11 +297,13 @@
       ]
     },
     "budget": {
+      "hotelBookingUrl": "https://hotelcrystalfall.com/",
       "transport": [
         {
           "mode": "Local Bus (Pokhara → Jomsom)",
           "key": "localBus",
           "cost": "NPR 1,500-2,500",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perPerson", "currency": "NPR", "min": 1500, "max": 2500 },
           "bookingDemo": true,
           "photo": "assets/images/transport/bus-local.jpg"
@@ -295,6 +312,7 @@
           "mode": "Shared Jeep (Jomsom → Muktinath)",
           "key": "sharedJeep",
           "cost": "NPR 500-800",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perPerson", "currency": "NPR", "min": 500, "max": 800 },
           "bookingDemo": true,
           "photo": "assets/images/transport/shared-jeep.jpg"
@@ -303,6 +321,7 @@
           "mode": "Return by Local Bus (Jomsom → Pokhara)",
           "key": "returnBus",
           "cost": "NPR 1,500-2,500",
+          "bookingUrl": "https://muktinathdarshantours.com/",
           "pricing": { "type": "perPerson", "currency": "NPR", "min": 1500, "max": 2500 },
           "bookingDemo": true
         }

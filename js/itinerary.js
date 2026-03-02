@@ -234,7 +234,12 @@ function updateContextPanel(personaKey) {
                     } else if (t.pricing && t.pricing.type === 'perVehicle') {
                         priceDisplay += ' ' + i18n.t('contextPanel.perVehicle');
                     }
-                    return `<li><strong>${getTransportName(t)}:</strong> ${priceDisplay} ${t.bookingDemo ? '<button class="btn btn-sm btn-outline-success ms-2" onclick="alert(\'Demo booking – no charge\')">Book Demo</button>' : ''}</li>`;
+                    // Create booking button if bookingUrl exists
+                    let bookingButton = '';
+                    if (t.bookingUrl) {
+                        bookingButton = `<a href="${t.bookingUrl}" target="_self" rel="dofollow" referrerpolicy="unsafe-url" class="btn btn-sm btn-outline-success ms-2">Book Now</a>`;
+                    }
+                    return `<li><strong>${getTransportName(t)}:</strong> ${priceDisplay} ${bookingButton}</li>`;
                 }).join('')}
             </ul>
         </div>
@@ -243,6 +248,14 @@ function updateContextPanel(personaKey) {
             <ul class="list-unstyled small">
                 ${persona.accommodation.map(a => `<li><strong>${getAccommodationName(a)}:</strong> ${a.cost}</li>`).join('')}
             </ul>
+            <!-- Hotel booking button (if available) -->
+            ${persona.hotelBookingUrl ? `
+                <div class="mt-2">
+                    <a href="${persona.hotelBookingUrl}" target="_self" rel="dofollow" referrerpolicy="unsafe-url" class="btn btn-sm btn-outline-primary">
+                        🏨 Book Hotels in Pokhara
+                    </a>
+                </div>
+            ` : ''}
         </div>
         <div class="mb-3">
             <h6 class="fw-semibold">${i18n.t('contextPanel.food')}</h6>

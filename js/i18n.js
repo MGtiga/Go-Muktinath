@@ -11,49 +11,42 @@ const i18n = (function() {
             currentLang = lang;
             localStorage.setItem('lang', lang);
             updateStaticContent();
-            // Dispatch an event so other scripts can react (e.g., re-render dynamic content)
             window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
         } catch (error) {
             console.error('i18n error:', error);
-            // Fallback to empty translations
             translations = {};
         }
     }
 
-    // Update all elements with data-i18n attribute
     function updateStaticContent() {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             const translation = getNestedTranslation(key);
-            if (translation) {
-                el.textContent = translation;
-            }
+            if (translation) el.textContent = translation;
         });
-        // Also handle placeholders and other attributes if needed (e.g., data-i18n-placeholder)
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
             const translation = getNestedTranslation(key);
-            if (translation) {
-                el.placeholder = translation;
-            }
+            if (translation) el.placeholder = translation;
         });
-        // Update modal titles? They are static but we can handle via data-i18n on modal-title elements.
-        // We'll add data-i18n to those elements later.
     }
 
-    // Helper to get nested property from translations object using dot notation
     function getNestedTranslation(key) {
         return key.split('.').reduce((obj, part) => obj && obj[part], translations);
     }
 
-    // Public API
     return {
         init: async () => {
             await loadLanguage(currentLang);
         },
-        t: (key, fallback = '') => {
+        t: (key, params = {}) => {
             const translation = getNestedTranslation(key);
-            return translation !== undefined ? translation : fallback;
+            if (translation === undefined) return '';
+            // If it's a string, replace placeholders; otherwise return as is (object/array)
+            if (typeof translation === 'string') {
+                return translation.replace(/\{(\w+)\}/g, (match, p1) => params[p1] !== undefined ? params[p1] : match);
+            }
+            return translation;
         },
         setLanguage: async (lang) => {
             await loadLanguage(lang);
@@ -62,32 +55,31 @@ const i18n = (function() {
     };
 })();
 
-// Auto-initialize
-// Auto-initialize
 document.addEventListener('DOMContentLoaded', async () => {
+    await i18n.init();
+    // Force re-render of dynamic content after translations are loaded
+    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: i18n.getCurrentLang() } }));
+
+    // Language toggle button
     const langToggle = document.getElementById('lang-toggle');
-if (langToggle) {
-    // Function to update button text based on current language
-    function updateLangToggle() {
-        const currentLang = i18n.getCurrentLang();
-        const langText = document.getElementById('lang-text');
-        if (currentLang === 'en') {
-            langText.textContent = 'नेपाली';
-        } else {
-            langText.textContent = 'English';
+    if (langToggle) {
+        function updateLangToggle() {
+            const currentLang = i18n.getCurrentLang();
+            const langText = document.getElementById('lang-text');
+            if (currentLang === 'en') {
+                langText.textContent = 'नेपाली';
+            } else {
+                langText.textContent = 'English';
+            }
         }
+        updateLangToggle();
+
+        langToggle.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const currentLang = i18n.getCurrentLang();
+            const newLang = currentLang === 'en' ? 'np' : 'en';
+            await i18n.setLanguage(newLang);
+            updateLangToggle();
+        });
     }
-
-    // Initial update
-    updateLangToggle();
-
-    // Click handler
-    langToggle.addEventListener('click', async (e) => {
-        e.preventDefault();
-        const currentLang = i18n.getCurrentLang();
-        const newLang = currentLang === 'en' ? 'np' : 'en';
-        await i18n.setLanguage(newLang);
-        updateLangToggle(); // update text after change
-    });
-}
 });
