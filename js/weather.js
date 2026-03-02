@@ -138,14 +138,10 @@ function showWeatherDetail(index) {
     modalBody.innerHTML = `
         <div class="text-center mb-3">
             <div style="font-size: 4rem;">${day.emoji}</div>
-            <h4>${day.temp}°C <small class="text-muted">(noon forecast)</small></h4>
+            <h4>${day.minTemp}°C to ${day.maxTemp}°C</h4>
             <p class="lead">${day.description}</p>
         </div>
         <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Min / Max
-                <span>${day.minTemp}°C / ${day.maxTemp}°C</span>
-            </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Feels Like
                 <span>${day.feelsLike}°C</span>
